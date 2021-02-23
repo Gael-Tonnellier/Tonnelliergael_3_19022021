@@ -4,7 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-//font-family: 'Roboto', sans-serif;
+@import "_home.scss","_menu.scss";
 
 $primary:#9356DC;
 $secondary:#FF79DA;
@@ -16,4 +16,36 @@ html{
 body{
     width: 100%;
     margin: 0px;
+}
+/* ----------------------LIKE-CHECK ANIMATION -------------------*/
+.like__checkbox input[type="checkbox"],
+.like__checkbox .checked {
+display: none;
+}
+
+.like__checkbox input[type="checkbox"]:checked ~ .checked
+{
+display: inline-block;
+}
+
+.like__checkbox input[type="checkbox"]:checked ~ .unchecked
+{
+display: none;
+}
+
+/*-----------------SELECT CHECK ANIMATION -----------*/
+
+.select__checkbox input[type="checkbox"],
+.select__checkbox .checked {
+display: none;
+}
+
+.select__checkbox input[type="checkbox"]:checked ~ .checked
+{
+display: inline-block;
+}
+
+.select__checkbox input[type="checkbox"]:checked ~ .unchecked
+{
+display: none;
 }

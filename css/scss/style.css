@@ -125,4 +125,37 @@ body {
   -webkit-box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
           box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
 }
+
+body {
+  width: 100%;
+  margin: 0px;
+}
+
+/* ----------------------LIKE-CHECK ANIMATION -------------------*/
+.like__checkbox input[type="checkbox"],
+.like__checkbox .checked {
+  display: none;
+}
+
+.like__checkbox input[type="checkbox"]:checked ~ .checked {
+  display: inline-block;
+}
+
+.like__checkbox input[type="checkbox"]:checked ~ .unchecked {
+  display: none;
+}
+
+/*-----------------SELECT CHECK ANIMATION -----------*/
+.select__checkbox input[type="checkbox"],
+.select__checkbox .checked {
+  display: none;
+}
+
+.select__checkbox input[type="checkbox"]:checked ~ .checked {
+  display: inline-block;
+}
+
+.select__checkbox input[type="checkbox"]:checked ~ .unchecked {
+  display: none;
+}
 /*# sourceMappingURL=style.css.map */

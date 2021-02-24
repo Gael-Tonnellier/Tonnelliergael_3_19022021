@@ -1,15 +1,121 @@
-@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap'); 
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 
 //font-family: 'Shrikhand', cursive;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-//font-family: 'Roboto', sans-serif;
+$primary: #9356dc;
+$secondary: #ff79da;
+$tertiary: #99e2d0;
+$c-header: #525252;
 
-$primary:#9356DC;
-$secondary:#FF79DA;
-$tertiary:#99E2D0;
+$bg-primary: #ffffff;
+$bg-secondary: #e7e7e7;
+$bg-tertiary: #f3f3f3;
 
-html{
-    font-family: 'Roboto', sans-serif;
+@mixin roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  @include roboto();
+}
+body {
+  width: 100%;
+  margin: 0px;
+}
+/* ----------------------LIKE-CHECK ANIMATION -------------------*/
+.like__checkbox input[type="checkbox"],
+.like__checkbox .checked {
+  display: none;
+}
+
+.like__checkbox input[type="checkbox"]:checked ~ .checked {
+  display: inline-block;
+}
+
+.like__checkbox input[type="checkbox"]:checked ~ .unchecked {
+  display: none;
+}
+
+/*-----------------SELECT CHECK ANIMATION -----------*/
+
+.select__checkbox input[type="checkbox"],
+.select__checkbox .checked {
+  display: none;
+}
+
+.select__checkbox input[type="checkbox"]:checked ~ .checked {
+  display: inline-block;
+}
+
+.select__checkbox input[type="checkbox"]:checked ~ .unchecked {
+  display: none;
+}
+
+/*------------------ACCEUIL--------------------------------*/
+.header-home {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.nav-home {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+  padding-left: 13%;
+  background: $bg-secondary;
+  box-shadow: inset 0px 8px 10px -10px rgba(0, 0, 0, 0.342);
+  color: $c-header;
+  &__icon {
+    padding-right: 10px;
+  }
+  &__custom-select {
+    font-size: small;
+    & select {
+      appearance: none;
+      border: none;
+      background-color:$bg-secondary;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight:bold;
+      color: inherit;
+      margin: 0px;
+      width: 100%;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.summary{
+    display: flex;
+    flex-direction: column;
+    background: $bg-primary;
+}
+
+.reservation{
+    background: $bg-tertiary;
+    width: 100%;
+    padding-bottom: 2em;
+    text-align: center;
+    &__title{
+        padding:0% 10% 0% 10%;  
+    }
+    & p { font-size:medium;
+        font-weight: lighter;
+    }
+    & a {
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        padding: 15px;
+        background: rgb(147,86,220);
+        background:linear-gradient(353deg, rgba(147,86,220,1)
+         10%,
+         rgba(255,121,218,1) 100%);
+        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
+    }
 }

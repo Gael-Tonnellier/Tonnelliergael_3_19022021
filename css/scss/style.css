@@ -1,6 +1,128 @@
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  width: 100%;
+  margin: 0px;
+}
+
+/* ----------------------LIKE-CHECK ANIMATION -------------------*/
+.like__checkbox input[type="checkbox"],
+.like__checkbox .checked {
+  display: none;
+}
+
+.like__checkbox input[type="checkbox"]:checked ~ .checked {
+  display: inline-block;
+}
+
+.like__checkbox input[type="checkbox"]:checked ~ .unchecked {
+  display: none;
+}
+
+/*-----------------SELECT CHECK ANIMATION -----------*/
+.select__checkbox input[type="checkbox"],
+.select__checkbox .checked {
+  display: none;
+}
+
+.select__checkbox input[type="checkbox"]:checked ~ .checked {
+  display: inline-block;
+}
+
+.select__checkbox input[type="checkbox"]:checked ~ .unchecked {
+  display: none;
+}
+
+/*------------------ACCEUIL--------------------------------*/
+.header-home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.nav-home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5%;
+  padding-left: 13%;
+  background: #e7e7e7;
+  -webkit-box-shadow: inset 0px 8px 10px -10px rgba(0, 0, 0, 0.342);
+          box-shadow: inset 0px 8px 10px -10px rgba(0, 0, 0, 0.342);
+  color: #525252;
+}
+
+.nav-home__icon {
+  padding-right: 10px;
+}
+
+.nav-home__custom-select {
+  font-size: small;
+}
+
+.nav-home__custom-select select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background-color: #e7e7e7;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  color: inherit;
+  margin: 0px;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+
+.summary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #ffffff;
+}
+
+.reservation {
+  background: #f3f3f3;
+  width: 100%;
+  padding-bottom: 2em;
+  text-align: center;
+}
+
+.reservation__title {
+  padding: 0% 10% 0% 10%;
+}
+
+.reservation p {
+  font-size: medium;
+  font-weight: lighter;
+}
+
+.reservation a {
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  padding: 15px;
+  background: #9356dc;
+  background: linear-gradient(353deg, #9356dc 10%, #ff79da 100%);
+  -webkit-box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
 }
 /*# sourceMappingURL=style.css.map */

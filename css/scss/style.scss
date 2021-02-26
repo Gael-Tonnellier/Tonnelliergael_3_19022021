@@ -35,6 +35,11 @@ $bg-tertiary: #f3f3f3;
 @mixin box-shadows {
   box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.15);
 }
+@mixin animation-apparition {
+  animation-name: apparition;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
 
 html {
   @include roboto();
@@ -69,12 +74,7 @@ ul {
 }
 .like__checkbox input[type="checkbox"]:checked ~ .checked {
   display: inline-block;
-  color: $primary;
-  transition: transform 1000ms ease-in-out;
-  &::after{
-    transition: all 1s;
-  }
-  
+  animation-name: apparition 2s;
 }
 .like__checkbox input[type="checkbox"]:checked ~ .unchecked {
   display: none;
@@ -89,17 +89,52 @@ ul {
 }
 .select__checkbox input[type="checkbox"]:checked ~ .checked {
   display: inline-block;
-  transform: rotate(1turn);
-  transition: transform 500ms ease;
 }
 .select__checkbox input[type="checkbox"]:checked ~ .unchecked {
   display: none;
-  transform: rotate(1turn);
-  transition: transform 500ms ease;
 }
-.select__checkbox input[type="checkbox"]{
-  transition: transform 500ms ease;
+.unchecked{
+  cursor: pointer;
+  animation: heart 300ms;
 }
+.checked{
+  animation: heart 300ms;
+  background: radial-gradient(circle, rgba(147,86,220,1) 0%,
+    rgba(255,121,218,1) 100%);
+  background-clip: text;
+  color: transparent;
+  cursor: pointer;
+}
+@keyframes heart{
+  from{
+    opacity: 0;
+    transform: scale(0.1);
+    transform-origin: center center;
+  }
+  to{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes apparition{
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity: 1;
+  }
+}
+@keyframes checkcircle{
+  from{
+    transform: rotate(1deg);
+
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
 /*------------------ACCEUIL--------------------------------*/
 .header-home {
   display: flex;
@@ -237,15 +272,17 @@ ul {
   flex-direction: column;
   margin: auto;
   width: 90%;
+  max-width: 500px;
   border-radius: 15px;
   background: $bg-primary;
   @include box-shadows();
   &__new{
-    position: absolute;
-    width: 20%;
+    position: relative;
+    width: 60px;
     text-align: center;
-    left: 13.8em;
-    margin-top: 1em;
+    top: 2.2em;
+    margin-left: 70%;
+    margin-top: -2em;
     background-color: $tertiary;
     color: darken($tertiary, $amount: 35%);
     font-weight: 900;
@@ -408,6 +445,23 @@ ul {
     display: flex;
     flex-direction: row;
     width: 100%;
+    opacity: 0;
+    &__delay1{
+      animation-delay: 300ms;
+      @include animation-apparition();
+    }
+    &__delay2{
+      animation-delay: 600ms;
+      @include animation-apparition();
+    }
+    &__delay3{
+      animation-delay: 900ms;
+      @include animation-apparition();
+    }
+    &__delay4{
+      animation-delay: 1100ms;
+      @include animation-apparition();
+    }
   }
 }
 
@@ -456,6 +510,7 @@ ul {
       padding-right: 1em;
       padding-left: 1em;
       overflow: hidden;
+      animation: checkcircle 1s ;
     }
   }
 }

@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 
-//font-family: 'Shrikhand', cursive;
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap");
 
 $primary: #9356dc;
@@ -15,15 +13,27 @@ $bg-primary: #ffffff;
 $bg-secondary: #e7e7e7;
 $bg-tertiary: #f3f3f3;
 
+
+
+@mixin radient-btn {
+  color: white;
+  border-radius: 30px;
+  padding: 15px;
+  background: linear-gradient(
+    353deg,
+     rgba(147, 86, 220, 1) 10%,
+     rgba(255, 121, 218, 1) 100%
+    );
+}
 @mixin roboto {
   font-family: "Roboto", sans-serif;
 }
 @mixin shrik {
-  font-family: 'Shrikhand', cursive;
+  font-family: "Shrikhand", cursive;
   font-weight: lighter;
 }
 @mixin box-shadows {
-  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.15);
 }
 
 html {
@@ -49,7 +59,7 @@ a {
   color: $writing;
   text-decoration: none;
 }
-ul{
+ul {
   list-style: none;
 }
 /* ----------------------LIKE-CHECK ANIMATION -------------------*/
@@ -59,13 +69,18 @@ ul{
 }
 .like__checkbox input[type="checkbox"]:checked ~ .checked {
   display: inline-block;
+  color: $primary;
+  transition: transform 1000ms ease-in-out;
+  &::after{
+    transition: all 1s;
+  }
+  
 }
 .like__checkbox input[type="checkbox"]:checked ~ .unchecked {
   display: none;
 }
-.checked{
-  color: $secondary;
-}
+
+
 /*-----------------SELECT CHECK ANIMATION -----------*/
 
 .select__checkbox input[type="checkbox"],
@@ -74,9 +89,16 @@ ul{
 }
 .select__checkbox input[type="checkbox"]:checked ~ .checked {
   display: inline-block;
+  transform: rotate(1turn);
+  transition: transform 500ms ease;
 }
 .select__checkbox input[type="checkbox"]:checked ~ .unchecked {
   display: none;
+  transform: rotate(1turn);
+  transition: transform 500ms ease;
+}
+.select__checkbox input[type="checkbox"]{
+  transition: transform 500ms ease;
 }
 /*------------------ACCEUIL--------------------------------*/
 .header-home {
@@ -110,6 +132,11 @@ ul{
       width: 100%;
       outline: none;
       cursor: pointer;
+      & option {
+        background-color: darken($secondary, $amount: 40%);
+        color: $bg-primary;
+        border-radius: 15px;
+      }
     }
   }
 }
@@ -136,15 +163,7 @@ ul{
     padding: 0% 5% 7% 5%;
   }
   & a {
-    color: white;
-    border-radius: 30px;
-    padding: 15px;
-    background: rgb(147, 86, 220);
-    background: linear-gradient(
-      353deg,
-      rgba(147, 86, 220, 1) 10%,
-      rgba(255, 121, 218, 1) 100%
-    );
+    @include radient-btn();
     @include box-shadows();
   }
 }
@@ -160,13 +179,14 @@ ul{
     justify-content: space-between;
     margin: 0;
     padding: 0;
-    height: 13em;
+    height: 14em;
     & li {
       margin: auto;
       padding: 1em;
       @include box-shadows();
       border-radius: 17px;
       text-align: left;
+      background-color: $bg-tertiary;
       &:hover {
         background: lighten($color: $primary, $amount: 35%);
         transition: 300ms;
@@ -209,7 +229,7 @@ ul{
   flex-direction: column;
   justify-content: space-between;
   align-content: space-between;
-  height: 70em;
+  height: 57em;
   padding-bottom: 3em;
 }
 .content-restaurant {
@@ -219,6 +239,23 @@ ul{
   width: 90%;
   border-radius: 15px;
   background: $bg-primary;
+  @include box-shadows();
+  &__new{
+    position: absolute;
+    width: 20%;
+    text-align: center;
+    left: 13.8em;
+    margin-top: 1em;
+    background-color: $tertiary;
+    color: darken($tertiary, $amount: 35%);
+    font-weight: 900;
+    border: 5px solid $tertiary;
+    border-radius: 1px;
+    @include box-shadows();
+    & p {
+      font-size: small;
+    }
+  }
   & p {
     margin: 0;
   }
@@ -243,8 +280,9 @@ ul{
     width: 100%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    height: 192px;
-    object-fit: cover;
+    height: 150px;
+    object-fit:cover;
+    object-position: center 60%;
   }
 }
 .footer {
@@ -271,14 +309,14 @@ ul{
       height: 7em;
       margin: 0;
       padding-left: 1em;
-      a{
+      a {
         color: $bg-tertiary;
       }
-      .fa-utensils{
+      .fa-utensils {
         font-size: medium;
         width: 30px;
       }
-      .fa-hands-helping{
+      .fa-hands-helping {
         font-size: smaller;
         width: 30px;
       }
@@ -287,39 +325,39 @@ ul{
 }
 
 /*---------------MENU-----------------------------------*/
-.header-menu{
+.header-menu {
   padding-top: 1px;
   background-color: $bg-tertiary;
-  &__icon{
+  &__icon {
     position: absolute;
     font-size: large;
-    left:5%;
-    top:1.5em;
+    left: 5%;
+    top: 1.5em;
   }
-  &__title{
+  &__title {
     text-align: center;
     margin-bottom: 0;
     padding-bottom: 0.5em;
-    img{
+    img {
       width: 45%;
       height: 30px;
     }
   }
 }
-.container-menu{
+.container-menu {
   display: flex;
   flex-direction: column;
   background: $bg-tertiary;
-  &__background{
-    margin:0;
+  &__background {
+    margin: 0;
     width: 100%;
-    &__img{
-      object-fit:cover;
+    &__img {
+      object-fit: cover;
       width: 100%;
       height: 250px;
     }
   }
-  &__header{
+  &__header {
     position: relative;
     margin-top: -30px;
     background: $bg-tertiary;
@@ -328,14 +366,99 @@ ul{
     border: black;
     display: flex;
     z-index: 99;
-    &__title{
+    &__title {
       width: 80%;
+      @include shrik();
+      padding-left: 0.5em;
     }
-    .fa-heart{
+    .fa-heart {
       padding-top: 1.5em;
     }
   }
   &__content{
-    
+    margin-bottom: 3em;
   }
+  &__btn{
+    display: flex;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 5em;
+    justify-content: center;
+    @include radient-btn();
+    @include box-shadows();
+  }
+}
+.content-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  height: 16em;
+  &__title {
+    font-weight: lighter;
+    text-transform: uppercase;
+    font-size: medium;
+    border-bottom: 3px $tertiary solid;
+    padding-bottom: 4px;
+    width: 40px;
+    margin: 0;
+  }
+  &__menu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  height: 4em;
+  background-color: $bg-primary;
+  border-radius: 15px;
+  @include box-shadows();
+  &__description {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    padding-left: 0.5em;
+    p,
+    h3 {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      margin: 0;
+    }
+  }
+  &__price {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    padding-right: 0.5em;
+    p {
+      margin: 0;
+      font-weight: bolder;
+    }
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    background-color: $tertiary;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    .fa-check-circle {
+      color: $bg-primary;
+      padding-right: 1em;
+      padding-left: 1em;
+      overflow: hidden;
+    }
+  }
+}
+.select__checkbox {
+  width: 100%;
 }

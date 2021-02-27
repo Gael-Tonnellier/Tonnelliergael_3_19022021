@@ -49,20 +49,6 @@ ul {
   display: none;
 }
 
-/*-----------------SELECT CHECK ANIMATION -----------*/
-.select__checkbox input[type="checkbox"],
-.select__checkbox .checked {
-  display: none;
-}
-
-.select__checkbox input[type="checkbox"]:checked ~ .checked {
-  display: inline-block;
-}
-
-.select__checkbox input[type="checkbox"]:checked ~ .unchecked {
-  display: none;
-}
-
 .unchecked {
   cursor: pointer;
   -webkit-animation: heart 300ms;
@@ -76,6 +62,20 @@ ul {
   background-clip: text;
   color: transparent;
   cursor: pointer;
+}
+
+/*-----------------SELECT CHECK ANIMATION -----------*/
+.select__checkbox input[type="checkbox"],
+.select__checkbox .checked {
+  display: none;
+}
+
+.select__checkbox input[type="checkbox"]:checked ~ .checked {
+  display: block;
+}
+
+.select__checkbox input[type="checkbox"]:checked ~ .unchecked {
+  display: none;
 }
 
 @-webkit-keyframes heart {
@@ -149,6 +149,28 @@ ul {
   to {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes boxcheck {
+  from {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@keyframes boxcheck {
+  from {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
   }
 }
 
@@ -686,6 +708,7 @@ ul {
   border-radius: 15px;
   -webkit-box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
 }
 
 .menu__description {
@@ -737,16 +760,18 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #99e2d0;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  background-color: #99e2d0;
+  width: 50px;
+  -webkit-animation: boxcheck 1s;
+          animation: boxcheck 1s;
 }
 
 .menu__btn .fa-check-circle {
+  position: relative;
+  left: 15px;
   color: #ffffff;
-  padding-right: 1em;
-  padding-left: 1em;
-  overflow: hidden;
   -webkit-animation: checkcircle 1s;
           animation: checkcircle 1s;
 }

@@ -88,20 +88,20 @@ ul {
   background: radial-gradient(circle, rgba(147,86,220,1) 0%,
     rgba(255,121,218,1) 100%);
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
   cursor: pointer;
 }
 /*-----------------SELECT CHECK ANIMATION -----------*/
 
-.select__checkbox input[type="checkbox"],
-.select__checkbox .checked {
+input.check{
   display: none;
 }
-.select__checkbox input[type="checkbox"]:checked ~ .checked{
-  display: block;
+input.check:checked~.menu__btn,.fa-check-circle{ 
+  width: 40px;
 }
-.select__checkbox input[type="checkbox"]:checked ~ .unchecked{
-  display: none;
+input.check:checked~ .menu__btn > .fa-check-circle{
+   animation: checkcircle 1s ;
 }
 
 
@@ -134,14 +134,7 @@ ul {
     transform: rotate(360deg);
   }
 }
-@keyframes boxcheck{
-  from{
-    transform: translateX(50px);
-  }
-  to{
-    transform: translateX(0px);
-  }
-}
+
 /*------------------ACCEUIL--------------------------------*/
 .header-home {
   display: flex;
@@ -480,6 +473,8 @@ ul {
   border-radius: 15px;
   @include box-shadows();
   overflow: hidden;
+  width: 100%;
+  cursor: pointer;
   &__description {
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -509,20 +504,19 @@ ul {
   }
   &__btn {
     display: flex;
-    align-items: center;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     background-color: $tertiary;
-    width: 50px;
-    animation: boxcheck 1s;
+    width:0px;
+    transition: width 1s;
     .fa-check-circle{
-      position: relative;
-      left: 15px;
       color: $bg-primary;
-      animation: checkcircle 1s ;
+      margin: auto;
+      transform-origin: center;
+      width: 15px;
     }
   }
 }
-.select__checkbox {
+.check-label{
   width: 100%;
 }

@@ -5,15 +5,13 @@
 $primary: #9356dc;
 $secondary: #ff79da;
 $tertiary: #99e2d0;
-$c-header: #525252;
 $writing: black;
-$footer: #303030;
+$c-header: lighten($writing,30%);
+$footer:lighten($writing,25%);
 
 $bg-primary: #ffffff;
-$bg-secondary: #e7e7e7;
-$bg-tertiary: #f3f3f3;
-
-
+$bg-secondary: darken($bg-primary,10%);
+$bg-tertiary: darken($bg-primary,3%);
 
 @mixin radient-btn {
   color: white;
@@ -21,9 +19,19 @@ $bg-tertiary: #f3f3f3;
   padding: 15px;
   background: linear-gradient(
     353deg,
-     rgba(147, 86, 220, 1) 10%,
-     rgba(255, 121, 218, 1) 100%
-    );
+    rgba(147, 86, 220, 1) 10%,
+    rgba(255, 121, 218, 1) 100%
+  );
+}
+@mixin hover-btn {
+  transition: all 300ms ease-in-out;
+  &:hover {
+    transition: all 300ms ease-in-out;
+    animation-fill-mode: forwards;
+    opacity: 0.9;
+    box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.5);
+    transform: scale(1.02);
+  }
 }
 @mixin roboto {
   font-family: "Roboto", sans-serif;
@@ -79,14 +87,16 @@ ul {
 .like__checkbox input[type="checkbox"]:checked ~ .unchecked {
   display: none;
 }
-.unchecked{
+.unchecked {
   cursor: pointer;
-  animation: heart 300ms;
 }
-.checked{
-  animation: heart 300ms;
-  background: radial-gradient(circle, rgba(147,86,220,1) 0%,
-    rgba(255,121,218,1) 100%);
+.checked {
+  animation: heart 500ms;
+  background: radial-gradient(
+    circle,
+    rgba(147, 86, 220, 1) 0%,
+    rgba(255, 121, 218, 1) 100%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -94,47 +104,42 @@ ul {
 }
 /*-----------------SELECT CHECK ANIMATION -----------*/
 
-input.check{
+input.check {
   display: none;
 }
-input.check:checked~.menu__btn,.fa-check-circle{ 
+input.check:checked ~ .menu__btn {
   width: 40px;
 }
-input.check:checked~ .menu__btn > .fa-check-circle{
-   animation: checkcircle 1s ;
+input.check:checked ~ .menu__btn > .fa-check-circle {
+  animation: checkcircle 1s;
 }
 
-
-@keyframes heart{
-  from{
-    opacity: 0;
+@keyframes heart {
+  from {
     transform: scale(0.1);
-    transform-origin: center center;
+    transform-origin: bottom;
   }
-  to{
-    opacity: 1;
+  to {
     transform: scale(1);
   }
 }
-@keyframes apparition{
-  from{
+@keyframes apparition {
+  from {
     opacity: 0;
     transform: translateY(20px);
   }
-  to{
+  to {
     opacity: 1;
   }
 }
-@keyframes checkcircle{
-  from{
-    transform: rotate(1deg);
-
+@keyframes checkcircle {
+  from {
+    transform: rotate(90deg);
   }
-  to{
-    transform: rotate(360deg);
+  to {
+    transform: rotate(355deg);
   }
 }
-
 /*------------------ACCEUIL--------------------------------*/
 .header-home {
   display: flex;
@@ -146,9 +151,10 @@ input.check:checked~ .menu__btn > .fa-check-circle{
   display: flex;
   justify-content: center;
   padding: 5%;
-  padding-left: 13%;
+  padding-left: 13vw;
+  margin: auto;
   background: $bg-secondary;
-  box-shadow: inset 0px 8px 10px -10px rgba(0, 0, 0, 0.342);
+  box-shadow: inset 0px 8px 10px -10px rgba(0, 0, 0, 0.5);
   color: $c-header;
   &__icon {
     padding-right: 10px;
@@ -192,14 +198,17 @@ input.check:checked~ .menu__btn > .fa-check-circle{
     padding: 0% 10% 0% 10%;
     text-align: center;
     margin-bottom: 0px;
+    width: 90%;
   }
   & p {
     text-align: center;
     padding: 0% 5% 7% 5%;
+    width: 90%;
   }
   & a {
     @include radient-btn();
     @include box-shadows();
+    @include hover-btn();
   }
 }
 .operation {
@@ -276,7 +285,8 @@ input.check:checked~ .menu__btn > .fa-check-circle{
   border-radius: 15px;
   background: $bg-primary;
   @include box-shadows();
-  &__new{
+  @include hover-btn();
+  &__new {
     position: relative;
     width: 60px;
     text-align: center;
@@ -318,7 +328,7 @@ input.check:checked~ .menu__btn > .fa-check-circle{
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     height: 150px;
-    object-fit:cover;
+    object-fit: cover;
     object-position: center 60%;
   }
 }
@@ -370,6 +380,14 @@ input.check:checked~ .menu__btn > .fa-check-circle{
     font-size: large;
     left: 5%;
     top: 1.5em;
+    & a {
+      transition: all 300ms ease;
+      &:hover{
+       color: $primary;
+      }
+      
+    }
+
   }
   &__title {
     text-align: center;
@@ -412,15 +430,16 @@ input.check:checked~ .menu__btn > .fa-check-circle{
       padding-top: 1.5em;
     }
   }
-  &__content{
+  &__content {
     margin-bottom: 3em;
   }
-  &__btn{
+  &__btn {
     display: flex;
     width: 50%;
     margin: auto;
     margin-bottom: 5em;
     justify-content: center;
+    @include hover-btn();
     @include radient-btn();
     @include box-shadows();
   }
@@ -431,7 +450,7 @@ input.check:checked~ .menu__btn > .fa-check-circle{
   justify-content: space-between;
   width: 90%;
   margin: auto;
-  height: 16em;
+  height: auto;
   &__title {
     font-weight: lighter;
     text-transform: uppercase;
@@ -446,19 +465,20 @@ input.check:checked~ .menu__btn > .fa-check-circle{
     flex-direction: row;
     width: 100%;
     opacity: 0;
-    &__delay1{
+    margin-top: 15px;
+    &__delay1 {
       animation-delay: 300ms;
       @include animation-apparition();
     }
-    &__delay2{
+    &__delay2 {
       animation-delay: 600ms;
       @include animation-apparition();
     }
-    &__delay3{
+    &__delay3 {
       animation-delay: 900ms;
       @include animation-apparition();
     }
-    &__delay4{
+    &__delay4 {
       animation-delay: 1100ms;
       @include animation-apparition();
     }
@@ -504,12 +524,13 @@ input.check:checked~ .menu__btn > .fa-check-circle{
   }
   &__btn {
     display: flex;
+    flex-shrink: 0;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     background-color: $tertiary;
-    width:0px;
+    width: 0px;
     transition: width 1s;
-    .fa-check-circle{
+    .fa-check-circle {
       color: $bg-primary;
       margin: auto;
       transform-origin: center;
@@ -517,6 +538,150 @@ input.check:checked~ .menu__btn > .fa-check-circle{
     }
   }
 }
-.check-label{
+.check-label {
   width: 100%;
 }
+
+/* LOADER */
+.loading {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: $bg-primary;
+  z-index: 99;
+  animation: loader 3s forwards ;
+  animation-delay: 3s;
+  
+}
+@keyframes loader{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-1000vh);
+  }
+}
+@keyframes loading-position {
+  0% {
+    transform: translate(12px, 80px) scale(0);
+  }
+  25% {
+    transform: translate(12px, 80px) scale(0);
+  }
+  50% {
+    transform: translate(12px, 80px) scale(1);
+  }
+  75% {
+    transform: translate(80px, 80px) scale(1);
+  }
+  100% {
+    transform: translate(148px, 80px) scale(1);
+  }
+}
+@keyframes loading-size {
+  0% {
+    transform: translate(148px, 80px) scale(1);
+  }
+  100% {
+    transform: translate(148px, 80px) scale(0);
+  }
+}
+
+@keyframes loading-color {
+  0% {
+    color: #9356dc;
+  }
+  25% {
+    color: #525252;
+  }
+  50% {
+    color: #99e2d0;
+  }
+  75% {
+    color: #ff79da;
+  }
+  100% {
+    color: #9356dc;
+  }
+}
+@keyframes heat{
+  from{
+    opacity: 0;
+    transform:translateY(100px);
+  }
+  to{
+    opacity:1;
+  }
+}
+.loading-box {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  color:$bg-primary;
+  margin-top: 30vh;
+  padding-top: 5vh;
+  .loading__heat{
+    opacity: 0;
+  margin-left: -5vh;
+  margin-bottom: -50px;
+  background: radial-gradient(
+    circle,
+    rgba(147, 86, 220, 1) 0%,
+    rgba(255, 121, 218, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 20px;
+  font-family: "Shrikhand", cursive;
+  width: 50vh;
+  animation: heat 1s forwards;
+  animation-delay: 1.8s;
+  }
+}
+.loading-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+  box-sizing: content-box;
+  & div {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transform: translate(80px, 80px) scale(1);
+    color: #9356dc;
+    animation: loading-position 5.5555555555555545s infinite
+    cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  & div:nth-child(1) {
+    color: #ff79da;
+    transform: translate(148px, 80px) scale(1);
+    animation: loading-size 1.3888888888888886s infinite
+        cubic-bezier(0, 0.5, 0.5, 1),
+      loading-color 5.5555555555555545s infinite step-start;
+  }
+  & div:nth-child(2) {
+    animation-delay: -1.3888888888888886s;
+    color: #9356dc;
+  }
+  & div:nth-child(3) {
+    animation-delay: -2.7777777777777772s;
+    color: #ff79da;
+  }
+  & div:nth-child(4) {
+    animation-delay: -4.166666666666666s;
+    color: #99e2d0;
+  }
+  & div:nth-child(5) {
+    animation-delay: -5.5555555555555545s;
+    color: #525252;
+  }
+}
+
+

@@ -7,7 +7,8 @@ html {
 
 body {
   width: 100%;
-  margin: 0px;
+  margin: auto;
+  max-width: 1000px;
 }
 
 h2 {
@@ -155,8 +156,8 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-bottom: 5px;
   width: 100%;
+  background-color: #ffffff;
 }
 
 .nav-home {
@@ -166,7 +167,7 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 5%;
+  padding: 2vh;
   padding-left: 13vw;
   margin: auto;
   background: #e6e6e6;
@@ -224,8 +225,6 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -278,7 +277,9 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
       -ms-flex-direction: column;
           flex-direction: column;
   background: #ffffff;
-  padding: 7%;
+  padding-bottom: 5vh;
+  margin: auto;
+  width: 90%;
 }
 
 .operation__list {
@@ -363,7 +364,9 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
           justify-content: space-between;
   -ms-flex-line-pack: justify;
       align-content: space-between;
-  height: 57em;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   padding-bottom: 3em;
 }
 
@@ -376,8 +379,9 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: auto;
+  margin-bottom: 20px;
   width: 90%;
-  max-width: 500px;
+  max-width: 350px;
   border-radius: 15px;
   background: #ffffff;
   -webkit-box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.15);
@@ -612,6 +616,7 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
   display: -ms-flexbox;
   display: flex;
   width: 50%;
+  max-width: 200px;
   margin: auto;
   margin-bottom: 5em;
   -webkit-box-pack: center;
@@ -817,6 +822,7 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  left: 0px;
   width: 100%;
   height: 100%;
   background-color: #ffffff;
@@ -1056,6 +1062,50 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
   }
   to {
     opacity: 1;
+  }
+}
+
+/*-------------------------------RESPONSIVE ------------*/
+@media screen and (min-width: 600px) {
+  .nav-home {
+    padding-left: 8vw;
+  }
+  .summary__brother {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .reservation {
+    width: 50%;
+    border-bottom: solid 5px #ffffff;
+  }
+  .operation {
+    width: 45%;
+  }
+  .restaurants__container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .restaurants__container .content-restaurant {
+    max-width: 340px;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  html {
+    background: linear-gradient(353deg, #9356dc 10%, #ff79da 100%);
+  }
+  body {
+    position: relative;
+    -webkit-box-shadow: inset 8px 0 8px -10px #000000, inset -8px 0 8px -10px #000000;
+            box-shadow: inset 8px 0 8px -10px #000000, inset -8px 0 8px -10px #000000;
+  }
+  .nav-home {
+    padding-left: 5vh;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -235,7 +235,6 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
 }
 
 .reservation__title {
-  padding: 0% 10% 0% 10%;
   text-align: center;
   margin-bottom: 0px;
   width: 90%;
@@ -828,6 +827,90 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
           animation-delay: 3s;
 }
 
+.loading-box {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  color: #ffffff;
+  margin-top: 30vh;
+  padding-top: 5vh;
+}
+
+.loading-box .loading__heat {
+  opacity: 0;
+  margin-left: -5vh;
+  margin-bottom: -50px;
+  background: radial-gradient(circle, #9356dc 0%, #ff79da 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 20px;
+  font-family: "Shrikhand", cursive;
+  width: 50vh;
+  -webkit-animation: heat 1s forwards;
+          animation: heat 1s forwards;
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+}
+
+.loading-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-transform: translateZ(0) scale(1);
+          transform: translateZ(0) scale(1);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.loading-item div {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-transform: translate(80px, 80px) scale(1);
+          transform: translate(80px, 80px) scale(1);
+  color: #9356dc;
+  -webkit-animation: loading-position 5.55556s infinite cubic-bezier(0, 0.5, 0.5, 1);
+          animation: loading-position 5.55556s infinite cubic-bezier(0, 0.5, 0.5, 1);
+}
+
+.loading-item div:nth-child(1) {
+  color: #ff79da;
+  -webkit-transform: translate(148px, 80px) scale(1);
+          transform: translate(148px, 80px) scale(1);
+  -webkit-animation: loading-size 1.38889s infinite cubic-bezier(0, 0.5, 0.5, 1), loading-color 5.55556s infinite step-start;
+          animation: loading-size 1.38889s infinite cubic-bezier(0, 0.5, 0.5, 1), loading-color 5.55556s infinite step-start;
+}
+
+.loading-item div:nth-child(2) {
+  -webkit-animation-delay: -1.3888888888888886s;
+          animation-delay: -1.3888888888888886s;
+  color: #9356dc;
+}
+
+.loading-item div:nth-child(3) {
+  -webkit-animation-delay: -2.7777777777777772s;
+          animation-delay: -2.7777777777777772s;
+  color: #ff79da;
+}
+
+.loading-item div:nth-child(4) {
+  -webkit-animation-delay: -4.166666666666666s;
+          animation-delay: -4.166666666666666s;
+  color: #99e2d0;
+}
+
+.loading-item div:nth-child(5) {
+  -webkit-animation-delay: -5.5555555555555545s;
+          animation-delay: -5.5555555555555545s;
+  color: #525252;
+}
+
 @-webkit-keyframes loader {
   from {
     -webkit-transform: translateX(0);
@@ -974,89 +1057,5 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
   to {
     opacity: 1;
   }
-}
-
-.loading-box {
-  width: 200px;
-  height: 200px;
-  display: inline-block;
-  color: #ffffff;
-  margin-top: 30vh;
-  padding-top: 5vh;
-}
-
-.loading-box .loading__heat {
-  opacity: 0;
-  margin-left: -5vh;
-  margin-bottom: -50px;
-  background: radial-gradient(circle, #9356dc 0%, #ff79da 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  font-size: 20px;
-  font-family: "Shrikhand", cursive;
-  width: 50vh;
-  -webkit-animation: heat 1s forwards;
-          animation: heat 1s forwards;
-  -webkit-animation-delay: 1.8s;
-          animation-delay: 1.8s;
-}
-
-.loading-item {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  -webkit-transform: translateZ(0) scale(1);
-          transform: translateZ(0) scale(1);
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-}
-
-.loading-item div {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  -webkit-transform: translate(80px, 80px) scale(1);
-          transform: translate(80px, 80px) scale(1);
-  color: #9356dc;
-  -webkit-animation: loading-position 5.55556s infinite cubic-bezier(0, 0.5, 0.5, 1);
-          animation: loading-position 5.55556s infinite cubic-bezier(0, 0.5, 0.5, 1);
-}
-
-.loading-item div:nth-child(1) {
-  color: #ff79da;
-  -webkit-transform: translate(148px, 80px) scale(1);
-          transform: translate(148px, 80px) scale(1);
-  -webkit-animation: loading-size 1.38889s infinite cubic-bezier(0, 0.5, 0.5, 1), loading-color 5.55556s infinite step-start;
-          animation: loading-size 1.38889s infinite cubic-bezier(0, 0.5, 0.5, 1), loading-color 5.55556s infinite step-start;
-}
-
-.loading-item div:nth-child(2) {
-  -webkit-animation-delay: -1.3888888888888886s;
-          animation-delay: -1.3888888888888886s;
-  color: #9356dc;
-}
-
-.loading-item div:nth-child(3) {
-  -webkit-animation-delay: -2.7777777777777772s;
-          animation-delay: -2.7777777777777772s;
-  color: #ff79da;
-}
-
-.loading-item div:nth-child(4) {
-  -webkit-animation-delay: -4.166666666666666s;
-          animation-delay: -4.166666666666666s;
-  color: #99e2d0;
-}
-
-.loading-item div:nth-child(5) {
-  -webkit-animation-delay: -5.5555555555555545s;
-          animation-delay: -5.5555555555555545s;
-  color: #525252;
 }
 /*# sourceMappingURL=style.css.map */

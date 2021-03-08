@@ -135,6 +135,15 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
     transform: rotate(355deg);
   }
 }
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+  }
+}
 /*------------------ACCEUIL--------------------------------*/
 .header-home {
   display: flex;
@@ -292,10 +301,10 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
     top: 2.2em;
     margin-left: 70%;
     margin-top: -2em;
+    padding: 5px;
     background-color: $tertiary;
     color: darken($tertiary, $amount: 35%);
     font-weight: 900;
-    border: 5px solid $tertiary;
     border-radius: 1px;
     @include box-shadows();
     & p {
@@ -308,10 +317,13 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
   &__description {
     display: flex;
     flex-direction: row;
+    & a{
+      width: 100%;
+    }
     &__text {
       display: flex;
       flex-direction: column;
-      width: 60%;
+      width: 90%;
       margin: auto;
       margin-top: 10px;
       margin-bottom: 10px;
@@ -412,15 +424,15 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
     }
   }
   &__header {
-    margin-top: -30px;
     background: $bg-tertiary;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     display: flex;
+    margin-top: -30px;
     &__title {
       width: 80%;
       @include shrik();
-      padding-left: 0.5em;
+      margin-left: 5%;
     }
     .fa-heart {
       padding-top: 1.5em;
@@ -501,12 +513,20 @@ input.check:checked ~ .menu__btn > .fa-check-circle {
     justify-content: center;
     width: auto;
     padding-left: 0.5em;
-    p,
-    h3 {
+    &__title{
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
       margin: 0;
+      font-weight: bold;
+      font-size:19px;
+    }
+    &__ingredient {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      margin: 0;
+      font-weight: lighter;
     }
   }
   &__price {
